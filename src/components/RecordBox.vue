@@ -41,15 +41,14 @@ export default {
             h1 {
                 color: #fff;
                 font-family: Arial, Helvetica, sans-serif;
-                font-size: 25px;
+                font-size: 23px;
                 text-align: center;
-                padding-top: 20px;
+                padding: 20px 12px;
 
             }
 
             .song-info {
                 text-align: center;
-                padding-top: 20px;
                 font-family: Arial, Helvetica, sans-serif;
                 color: #62666b;
                 font-weight: bold;
