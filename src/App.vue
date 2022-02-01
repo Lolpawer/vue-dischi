@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <header><div class="fake-logo"></div></header>
+    <header>
+      <div class="fake-logo"></div>
+    </header>
     <main>
-        <main-container :discs="discs"/>
+      <select-option @choose="selectGenre"/>
+      <main-container :discs="discsFiltered"/>
     </main>
   </div>
 </template>
@@ -10,21 +13,36 @@
 <script>
 import axios from "axios"
 import MainContainer from "./components/MainContainer.vue"
+import SelectOption from "./components/SelectOption.vue"
 
 export default {
   name: 'App',
   components: {
-    MainContainer
+    MainContainer,
+    SelectOption,
   },
   data() {
     return {
       discs: [],
+      discsFiltered: [],
     }
   },
   mounted() {
     axios.get("https://flynn.boolean.careers/exercises/api/array/music").then((response) => {
       this.discs = response.data.response;
+      this.discsFiltered = response.data.response;
     })
+  },
+  methods: {
+    selectGenre(selected) {
+      if (selected === 'any') {
+        this.discsFiltered = this.discs;
+      } else {
+        this.discsFiltered = this.discs.filter((discs) => {
+          return discs.genre.toLowerCase().includes(selected);
+        });
+      }
+    }
   }
 }
 </script>
