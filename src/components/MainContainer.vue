@@ -1,9 +1,9 @@
 <template>
     <div class="container">
         <record-box
-        v-for="disc in discs"
-        :key="disc.title"
-        :disc="disc"
+        v-for="disk in disks"
+        :key="disk.title"
+        :disk="disk"
         />
     </div>
 </template>
@@ -16,7 +16,7 @@ export default {
         RecordBox
     },
     props: {
-        discs: Array
+        disks: Array
     }
 }
 </script>

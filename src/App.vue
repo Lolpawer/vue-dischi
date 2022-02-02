@@ -5,7 +5,7 @@
     </header>
     <main>
       <select-option @choose="selectGenre"/>
-      <main-container :discs="discsFiltered"/>
+      <main-container :disks="disksFiltered"/>
     </main>
   </div>
 </template>
@@ -23,23 +23,23 @@ export default {
   },
   data() {
     return {
-      discs: [],
-      discsFiltered: [],
+      disks: [],
+      disksFiltered: [],
     }
   },
   mounted() {
     axios.get("https://flynn.boolean.careers/exercises/api/array/music").then((response) => {
-      this.discs = response.data.response;
-      this.discsFiltered = response.data.response;
+      this.disks = response.data.response;
+      this.disksFiltered = response.data.response;
     })
   },
   methods: {
     selectGenre(selected) {
       if (selected === 'any') {
-        this.discsFiltered = this.discs;
+        this.disksFiltered = this.disks;
       } else {
-        this.discsFiltered = this.discs.filter((discs) => {
-          return discs.genre.toLowerCase().includes(selected);
+        this.disksFiltered = this.disks.filter((disks) => {
+          return disks.genre.toLowerCase().includes(selected);
         });
       }
     }

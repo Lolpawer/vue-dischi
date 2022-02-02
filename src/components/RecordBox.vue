@@ -1,12 +1,12 @@
 <template>
     <div class="box">
         <div class="img-box">
-            <img :src="disc.poster" />
+            <img :src="disk.poster" />
         </div>
-        <h1>{{disc.title.toUpperCase()}}</h1>
+        <h1>{{disk.title.toUpperCase()}}</h1>
         <div class="song-info">
-            <p class="song-author">{{disc.author}}</p>
-            <p>{{disc.year}}</p>
+            <p class="song-author">{{disk.author}}</p>
+            <p>{{disk.year}}</p>
         </div>
     </div>
 </template>
@@ -14,7 +14,7 @@
 <script>
 export default {
     props: {
-        disc: Object
+        disk: Object
     }
 }
 </script>
